@@ -1,0 +1,59 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<body>
+
+    <div class="container-fluid px-1 py-5 mx-auto">
+        <div class="row d-flex justify-content-center">
+            <div class="col-xl-9 col-lg-8 col-md-9 col-11 text-center">
+                <h1>Create New Blog</h1>
+                <div class="card">
+                    <form class="form-card"   #blogForm="ngForm" (ngSubmit)="createnewBlog()">
+                        <div class="row justify-content-between text-left">
+                            <div class="form-group col-sm-6 flex-column d-flex">
+                                <label class="form-control-label px-3">Title<span class="text-danger">
+                                        *</span></label>
+                                <input type="text" id="fname" placeholder="Enter your title"
+                                    [(ngModel)]="createBlogobj.title" name="title" required  #title="ngModel">
+                                    <div *ngIf="title.invalid && title.touched" class="text-danger">Title is required</div>
+                            </div>
+                            <div class="form-group col-sm-6 flex-column d-flex">
+                                <label class="form-control-label px-3">Description<span class="text-danger">
+                                        *</span></label>
+                                <textarea rows="3" cols="80" id="description" placeholder="Enter your description"
+                                    [(ngModel)]="createBlogobj.description" name="description" required  #description="ngModel"></textarea>
+                                    <div *ngIf="description.invalid && description.touched" class="text-danger">Description is required</div>
+                            </div>
+                        </div>
+                        <div class="row justify-content-between text-left">
+                            <div class="form-group col-sm-12 flex-column d-flex">
+                                <label class="form-control-label px-3">Article<span class="text-danger">
+                                        *</span></label>
+                                <textarea rows="5" cols="80" id="article" placeholder="Enter your article"
+                                    [(ngModel)]="createBlogobj.article" name="article" required   #article="ngModel"></textarea>
+                                    <div *ngIf="article.invalid && article.touched" class="text-danger">Article is required</div>
+                            </div>
+                        </div>
+                        <div class="row justify-content-between text-left">
+                            <div class="form-group col-sm-12 flex-column d-flex">
+                                <label class="form-control-label px-3">Upload Image<span class="text-danger">
+                                        *</span></label>
+                                <input type="file" id="file" multiple (change)="onFileSelected($event)" required>
+                                <div *ngIf="!fileExists && fileTouched" class="text-danger">Image is required</div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 text-left"> <!-- محاذاة الأزرار لجهة اليسار -->
+                                <div class="button-group">
+                                    <button type="submit" class="btn-success" 
+                                    [disabled]="blogForm.invalid">CREATE</button>
+                                    <button type="reset" class="btn-success">CLEAR</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+

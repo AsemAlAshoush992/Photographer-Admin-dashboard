@@ -1,0 +1,91 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+<body>
+
+    <div class="container-fluid px-1 py-5 mx-auto">
+        <div class="row d-flex justify-content-center">
+            <div class="col-xl-7 col-lg-8 col-md-9 col-11 text-center">
+                <h1 style="font-weight: 800;">Update Service</h1>
+                <div class="card">
+                    <form class="form-card" onsubmit="event.preventDefault()">
+                        <div class="row justify-content-between text-left">
+                            <div class="form-group col-sm-12 flex-column d-flex">
+                                <label class="form-control-label px-3">Name<span class="text-danger">
+                                        *</span></label>
+                                <input type="text" id="name" name="name" [(ngModel)]="data.name" required >
+
+                                <label class="form-control-label px-3">Description<span class="text-danger">
+                                        *</span></label>
+                                <input type="text" id="name" name="description" [(ngModel)]="data.description"
+                                    required>
+
+                                <label class="form-control-label px-3">Price<span class="text-danger">
+                                        *</span></label>
+                                <input type="number" id="name" name="price" [(ngModel)]="data.price" required>
+
+                                <label class="form-control-label px-3">Quantity<span class="text-danger">
+                                        *</span></label>
+                                <input type="number" id="name" name="quantity" [(ngModel)]="data.quantity" required>
+
+                                <label class="form-control-label px-3" for="exampleFormControlSelect1">Is Have Discount<span class="text-danger">
+                                        *</span></label>
+                                <select id="exampleFormControlSelect1" class="form-control" id="exampleFormControlSelect1" name="IsHaveDiscount"
+                                    (change)="IsHaveDiscount($event)"  required  [(ngModel)]="data.isHaveDiscount">
+                                    <option >true</option>
+                                    <option >false</option>
+                                </select>
+
+                                <label class="form-control-label px-3">Disacount Amount<span class="text-danger">
+                                        *</span></label>
+                                <input type="number" id="name" name="disacountAmount"
+                                    [(ngModel)]="data.disacountAmount" required>
+
+                                <label class="form-control-label px-3" for="exampleFormControlSelect2">Discount Type <span class="text-danger">
+                                        *</span></label>
+                                <select class="form-control" id="exampleFormControlSelect2" name="DiscountType"
+                                    (change)="DiscountType($event)"  required [(ngModel)]="data.discountType">
+                                    <option >Percent</option>
+                                    <option >FixedAmount</option>
+                                    <option>BundleDiscount</option>
+                                </select>
+
+                                <label class="form-control-label px-3" for="exampleFormControlSelect3">Category Number
+                                    <span class="text-danger">
+                                        *</span>
+                                </label>
+                                <select class="form-control" id="exampleFormControlSelect3" name="CategoryNumber"
+                                    (change)="CategoryNumber($event)"  required  [(ngModel)]="data.categoryID">
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5</option>
+                                    <option>6</option>
+                                    <option>7</option>
+                                    <option>8</option>
+                                    <option>9</option>
+                                    <option>10</option>
+                                </select>
+
+                                <label class="form-control-label px-3">Upload File<span class="text-danger">
+                                        *</span></label>
+                                <input type="file" id="file" name="filePath" (change)="onFileSelected($event)" required>
+                                <div>{{data.imagePath}}</div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 text-left"> <!-- محاذاة الأزرار لجهة اليسار -->
+                                <div class="button-group">
+                                    <button type="submit" class="btn-success"
+                                        (click)="UpdateService()">UPDATE</button>
+                                    <button type="reset" class="btn-success">CLEAR</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>

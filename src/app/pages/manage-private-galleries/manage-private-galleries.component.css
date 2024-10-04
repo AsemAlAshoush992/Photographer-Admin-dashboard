@@ -1,0 +1,33 @@
+table {
+    width: 100%;
+}
+
+.mat-mdc-form-field {
+    font-size: 14px;
+    width: 100%;
+}
+
+td,
+th {
+    width: 25%;
+}
+
+.pb-video-container {
+    padding-top: 20px;
+    background: white;
+    font-family: Lato;
+}
+
+.pb-video {
+    border: 1px solid #e6e6e6;
+    padding: 5px;
+}
+
+.pb-video:hover {
+    background: #4e73df;
+}
+
+
+.pb-row {
+    margin-bottom: 10px;
+}

@@ -1,0 +1,14 @@
+<form style="padding: 30px;">
+    <div class="form-group" style="padding: 30px;">
+        <label for="exampleFormControlSelect1" style="padding: 10px;">Change Status</label>
+        <select class="form-control" id="exampleFormControlSelect1" name="status" (change)="onStatusChange($event)">
+            <option>Pending</option>
+            <option>Confirmed</option>
+            <option>Processing</option>
+            <option>Delivered</option>
+            <option>Completed</option>
+            <option>Cancelled</option>
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary" (click)="ChangeStatus()">Submit</button>
+</form>

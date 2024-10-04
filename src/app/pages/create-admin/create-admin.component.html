@@ -1,0 +1,113 @@
+<section class="h-100 bg-dark">
+    <div class="container py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col">
+                <div class="card card-registration my-4">
+                    <div class="row g-0">
+                        <div class="col-xl-5 d-none d-xl-block">
+                            <img src="https://d26oc3sg82pgk3.cloudfront.net/files/media/edit/image/45522/article_aligned%402x.jpg"
+                                alt="Sample photo" class="img-fluid"
+                                style="border-top-left-radius: .25rem; border-bottom-left-radius: .25rem; height: 885px !important" />
+
+                        </div>
+                        <div class="col-xl-6">
+                            <div class="card-body p-md-5 text-black">
+                                <h1 class="mb-5 text-uppercase" style="font-weight: 600;">Create New Admin</h1>
+                                <form #adminForm="ngForm" (ngSubmit)="Register()"  (reset)="onReset()">
+                                    <div class="row">
+                                        <div class="col-md-6 mb-4">
+                                            <div data-mdb-input-init class="form-outline">
+                                                <label class="form-label" for="form3Example1m">First name<span
+                                                        class="text-danger custom-star">*</span></label>
+                                                <input type="text" id="form3Example1m"
+                                                    class="form-control form-control-lg"
+                                                    [(ngModel)]="registerObj.firstName" name="firstName"
+                                                    required placeholder="Eg. Fadi"  #firstName="ngModel" />
+                                                    <div *ngIf="firstName.invalid && firstName.touched" class="text-danger">First Name is required</div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 mb-4">
+                                            <div data-mdb-input-init class="form-outline">
+                                                <label class="form-label" for="form3Example1n">Last name<span
+                                                        class="text-danger custom-star">*</span></label>
+                                                <input type="text" id="form3Example1n"
+                                                    class="form-control form-control-lg"
+                                                    [(ngModel)]="registerObj.lastName" name="lastName"
+                                                    required placeholder="Eg. Mansor" #lastName="ngModel"/>
+                                                    <div *ngIf="lastName.invalid && lastName.touched" class="text-danger">Last Name is required</div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-6 mb-4">
+                                            <div data-mdb-input-init class="form-outline">
+                                                <label class="form-label" for="form3Example1m1">Email address<span
+                                                        class="text-danger custom-star">*</span></label>
+                                                <input type="email" id="form3Example1m1"
+                                                    class="form-control form-control-lg" [(ngModel)]="registerObj.email"
+                                                    name="email" required
+                                                    placeholder="Eg. Fadi.Mansor@yahoo.com" #email="ngModel" />
+                                                    <div *ngIf="email.invalid && email.touched" class="text-danger">Email address is required</div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 mb-4">
+                                            <div data-mdb-input-init class="form-outline">
+                                                <label class="form-label" for="form3Example1n1">Birthdate<span
+                                                        class="text-danger custom-star">*</span></label>
+                                                <input type="date" id="form3Example1n1"
+                                                    class="form-control form-control-lg"
+                                                    [(ngModel)]="registerObj.birthDate" name="birthDate"
+                                                    required  #birthDate="ngModel" />
+                                                    <div *ngIf="birthDate.invalid && birthDate.touched" class="text-danger">Birthdate is required</div>
+                                            </div>
+                                        </div>
+
+                                        <div data-mdb-input-init class="form-outline mb-4">
+                                            <label class="form-label" for="form3Example1m1">Password<span
+                                                    class="text-danger custom-star">*</span></label>
+                                            <input type="password" minlength="9" maxlength="30" id="form3Example1m1"
+                                                class="form-control form-control-lg" [(ngModel)]="registerObj.password"
+                                                name="password" required placeholder="Eg. Fadiman22@"  #password="ngModel" />
+                                                <div *ngIf="password.invalid && password.touched" class="text-danger">Password is required</div>
+                                            <small class="form-text text-muted">
+                                                Password must be at least 6 characters long, contain at least one
+                                                lowercase letter, one
+                                                uppercase letter, one number, and one special character.
+                                            </small>
+                                        </div>
+                                    </div>
+
+                                    <div data-mdb-input-init class="form-outline mb-4">
+                                        <label class="form-label" for="form3Example90">Phone number<span
+                                                class="text-danger custom-star">*</span></label>
+                                        <input type="text" maxlength="14" minlength="14" id="form3Example90"
+                                            class="form-control form-control-lg" [(ngModel)]="registerObj.phone"
+                                            name="phone" required placeholder="Eg. 00962794775666"  #phone="ngModel"/>
+                                            <div *ngIf="phone.invalid && phone.touched" class="text-danger">Phone number is required</div>
+                                    </div>
+
+                                    <div data-mdb-input-init class="form-outline mb-4">
+                                        <label class="form-label" for="form3Example99">Image upload</label>
+                                        <input type="file" id="form3Example99" class="form-control form-control-lg"
+                                           (change)="onFileSelected($event)"  name="registerObj.imagePath" />
+                                    </div>
+
+                                    <div class="d-flex justify-content-end pt-3">
+                                        <button type="reset" data-mdb-button-init data-mdb-ripple-init
+                                            class="btn btn-light btn-lg">
+                                            Clear
+                                        </button>
+                                        <button type="submit" data-mdb-button-init data-mdb-ripple-init
+                                            class="btn btn-success btn-lg ms-2"  [disabled]="adminForm.invalid" >Submit</button>
+                                    </div>
+                                </form>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

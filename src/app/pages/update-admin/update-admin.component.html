@@ -1,0 +1,60 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+<body>
+    <div class="container-fluid px-1 py-5 mx-auto">
+        <div class="row d-flex justify-content-center">
+            <div class="col-xl-7 col-lg-8 col-md-9 col-11 text-center">
+                <h1 style="font-weight: 800;">Update Profile</h1>
+                <div class="card">
+                    <form class="form-card">
+                        <div class="row justify-content-between text-left">
+                            <div class="form-group col-sm-6 flex-column d-flex">
+                                <label class="form-control-label px-3">Full Name<span class="text-danger">
+                                        *</span></label>
+                                <input type="text" id="fname" name="fname" placeholder="Enter your title"
+                                    [(ngModel)]="data.fullName" name="fullName" required>
+                            </div>
+                            <div class="form-group col-sm-6 flex-column d-flex">
+                                <label class="form-control-label px-3">Phone Number<span class="text-danger">
+                                        *</span></label>
+                                <input type="text" id="fname" name="fname" placeholder="Enter your title"
+                                    [(ngModel)]="data.phone" name="phone" required>
+                            </div>
+                        </div>
+                        <div class="row justify-content-between text-left">
+                            <div class="form-group col-sm-6 flex-column d-flex">
+                                <label class="form-control-label px-3">Password<span class="text-danger">
+                                        *</span></label>
+                                <input type="text" id="fname" name="fname" placeholder="Enter your title"
+                                    [(ngModel)]="data.password" name="password" required>
+                            </div>
+                            <div class="form-group col-sm-6 flex-column d-flex">
+                                <label class="form-control-label px-3">BirthDate<span class="text-danger">
+                                        *</span></label>
+                                <input type="date" id="fname" name="fname" placeholder="Enter your title"
+                                    [(ngModel)]="data.birthDate" name="birthDate" required>
+                                <div>{{data.birthDate | date}}</div>
+                            </div>
+                        </div>
+                        <div class="row justify-content-between text-left">
+                            <div class="form-group col-sm-12 flex-column d-flex">
+                                <label class="form-control-label px-3">Photo<span class="text-danger">
+                                        *</span></label>
+                                <input type="file" id="file" name="filePath" (change)="onFileSelected($event)" required>
+                                <div>{{data.imagePath}}</div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 text-left"> <!-- محاذاة الأزرار لجهة اليسار -->
+                                <div class="button-group">
+                                    <button type="submit" class="btn-success"
+                                        (click)="updateUserAcount()">UPDATE</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>

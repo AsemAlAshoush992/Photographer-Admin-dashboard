@@ -1,0 +1,143 @@
+<!-- Page Wrapper -->
+<div id="wrapper">
+
+    <!-- Sidebar -->
+    <app-side-bar></app-side-bar>
+    <!-- End of Sidebar -->
+
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+
+        <!-- Main Content -->
+        <div id="content">
+
+            <!-- Topbar -->
+            <app-nav></app-nav>
+            <!-- End of Topbar -->
+
+
+            <!--Main Content-->
+            <!-- Breadcrumb -->
+            <nav aria-label="breadcrumb" class="main-breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a routerLink="">Home</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Manage Users</li>
+                </ol>
+
+                <div class="col-sm-1">
+                    <button mat-icon-button matTooltip="Create New Admin"
+                        aria-label="Example icon button with a home icon" style="color: rgb(9, 180, 9);"
+                        (click)="CreateAdmin()">
+                        <mat-icon color="green">person_add</mat-icon></button>
+                </div>
+            </nav>
+            <!-- /Breadcrumb -->
+            <!--Main Content-->
+            <mat-form-field>
+                <mat-label>Filter</mat-label>
+                <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
+            </mat-form-field>
+
+            <div class="mat-elevation-z8">
+                <table mat-table [dataSource]="dataSource" matSort>
+
+                    <!-- ID Column -->
+                    <ng-container matColumnDef="id">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
+                        <td mat-cell *matCellDef="let row"> {{row.id}} </td>
+                    </ng-container>
+
+                    <!-- First Name Column -->
+                    <ng-container matColumnDef="firstName">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> First Name </th>
+                        <td mat-cell *matCellDef="let row"> {{row.firstName}} </td>
+                    </ng-container>
+
+                    <!-- Last Name Column -->
+                    <ng-container matColumnDef="lastName">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Last Name </th>
+                        <td mat-cell *matCellDef="let row"> {{row.lastName}} </td>
+                    </ng-container>
+
+                    <!-- Email Column -->
+                    <ng-container matColumnDef="email">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Email </th>
+                        <td mat-cell *matCellDef="let row"> {{row.email}} </td>
+                    </ng-container>
+
+                    <!-- Birth Date Column -->
+                    <ng-container matColumnDef="birthDate">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Birth Date </th>
+                        <td mat-cell *matCellDef="let row"> {{row.birthDate}} </td>
+                    </ng-container>
+
+                    <!-- Image Path Column -->
+                    <ng-container matColumnDef="imagePath">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Image </th>
+                        <td mat-cell *matCellDef="let row">
+                            <img [src]="row.imagePath && row.imagePath.length > 0 ? row.imagePath : 'https://bootdey.com/img/Content/avatar/avatar7.png'" height="120px" width="120px"
+                                class="w-100 shadow-1-strong rounded mb-4" alt="Boat on Calm Water" />
+                        </td>
+                    </ng-container>
+
+                    <!-- Phone Column -->
+                    <ng-container matColumnDef="phone">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Phone </th>
+                        <td mat-cell *matCellDef="let row"> {{row.phone}} </td>
+                    </ng-container>
+
+                    <!-- User Type Column -->
+                    <ng-container matColumnDef="userType">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> User Type </th>
+                        <td mat-cell *matCellDef="let row"> {{row.userType}} </td>
+                    </ng-container>
+
+                    <!-- Is Deleted Column -->
+                    <ng-container matColumnDef="isDeleted">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Is Deleted </th>
+                        <td mat-cell *matCellDef="let row"> {{row.isDeleted}} </td>
+                    </ng-container>
+
+                    <!-- Action -->
+                    <ng-container matColumnDef="action">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Action </th>
+                        <td mat-cell *matCellDef="let row">
+
+                            <!--Buttons-->
+                            <button mat-icon-button color="warn" aria-label="Example icon button with a menu icon"
+                                [matTooltip]="'Delete Client'" (click)="DeleteClient(row.id)">
+                                <mat-icon>delete_forever</mat-icon>
+                            </button>
+
+                        </td>
+                    </ng-container>
+
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+                    <!-- Row shown when there is no matching data. -->
+                    <tr class="mat-row" *matNoDataRow>
+                        <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+                    </tr>
+                </table>
+
+                <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
+            </div>
+
+        </div>
+        <!-- End of Main Content -->
+        <!--Footer-->
+        <app-footer></app-footer>
+        <!--End of Footer-->
+    </div>
+    <!-- End of Content Wrapper -->
+
+</div>
+<!-- End of Page Wrapper -->
+
+<!-- Scroll to Top Button-->
+<a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+</a>
+
+<!-- Logout Modal-->
